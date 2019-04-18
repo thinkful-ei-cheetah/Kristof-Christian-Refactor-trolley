@@ -6,7 +6,6 @@ class App extends Component {
   state =  {
     lists: [],
     allCards: {},
-    bool: true
   }
 
   componentDidMount(){
@@ -42,26 +41,27 @@ class App extends Component {
       },
       lists,
     })
-    console.log(this.state)
   }
 
-  // omit(obj, keyToOmit) {
-  //   return Object.entries(obj).reduce(
-  //     (newObj, [key, value]) =>
-  //         key === keyToOmit ? newObj : {...newObj, [key]: value},
-  //     {}
-  //   );
-  // }
+  handleDelete = () => {}
 
-  // const objectWithKVPs = {
-  //   key: 'value',
-  //   foo: 'foo value',
-  //   bar: 'bar value',
-  //   abc: { nested: 'object' }
-  // }
+  omit(obj, keyToOmit) {
+    return Object.entries(obj).reduce(
+      (newObj, [key, value]) =>
+          key === keyToOmit ? newObj : {...newObj, [key]: value},
+      {}
+    );
+  }
+
+  const objectWithKVPs = {
+    key: 'value',
+    foo: 'foo value',
+    bar: 'bar value',
+    abc: { nested: 'object' }
+  }
   
-  // // To remove the foo key value pair
-  // const newObjectWithKVPs = omit(objectWithKVPs, 'foo');
+  // To remove the foo key value pair
+  const newObjectWithKVPs = omit(objectWithKVPs, 'abc');
 
 
 
@@ -79,6 +79,7 @@ class App extends Component {
               header={list.header}
               cards={list.cardIds.map(id => this.state.allCards[id])}
               handleClick={this.handleClick}
+              handleDelete={this.handleDelete}
               id={list.id}
             />
           ))}

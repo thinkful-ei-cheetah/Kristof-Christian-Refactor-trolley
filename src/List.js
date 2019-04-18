@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card'
 import './List.css';
 
-export default function List({header, cards, handleClick, id}) {
+export default function List({header, cards, handleClick, id, handleDelete}) {
   
   return (
     <section className='List'>
@@ -15,6 +15,7 @@ export default function List({header, cards, handleClick, id}) {
             key={card.id}
             title={card.title}
             content={card.content}
+            handleDelete={handleDelete}
           />
         )}
         <button
