@@ -47,39 +47,33 @@ class App extends Component {
     })
   }
 
-  handleDelete = () => {}
+  handleDelete = (id) => {
+    const newCards = this.omit(this.state.allCards, id);
+
+    const updatedList = this.state.lists.map(list => {
+      return {...list, cardIds: list.cardIds.filter(cardId => cardId !== id) }
+    })
 
 
-  // omit(obj, keyToOmit) {
-  //   return Object.entries(obj).reduce(
-  //     (newObj, [key, value]) =>
-  //         key === keyToOmit ? newObj : {...newObj, [key]: value},
-  //     {}
-  //   );
-  // }
+    this.setState({
+      lists: updatedList,
+      allCards: newCards
+    })
 
-  // omit(obj, keyToOmit) {
-  //   return Object.entries(obj).reduce(
-  //     (newObj, [key, value]) =>
-  //         key === keyToOmit ? newObj : {...newObj, [key]: value},
-  //     {}
-  //   );
-  // }
-
-  // const objectWithKVPs = {
-  //   key: 'value',
-  //   foo: 'foo value',
-  //   bar: 'bar value',
-  //   abc: { nested: 'object' }
-  // }
-  
-  // // To remove the foo key value pair
-  // const newObjectWithKVPs = omit(objectWithKVPs, 'abc');
+  }
 
 
+  omit(obj, keyToOmit) {
+    return Object.entries(obj).reduce(
+      (newObj, [key, value]) =>
+          key === keyToOmit ? newObj : {...newObj, [key]: value},
+      {}
+    );
+  }
 
 
   render() {
+    console.log(this.state)
     return (
       <main className='App'>
         <header className='App-header'>

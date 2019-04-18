@@ -16,6 +16,7 @@ export default function List({header, cards, handleClick, id, handleDelete}) {
             title={card.title}
             content={card.content}
             handleDelete={handleDelete}
+            id={card.id}
           />
         )}
         <button
