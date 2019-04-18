@@ -10,8 +10,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log('im working')
-    console.log(this.props)
+
     this.setState({
       lists: this.props.store.lists,
       allCards: this.props.store.allCards
@@ -29,21 +28,27 @@ class App extends Component {
   }
 
   handleClick =(id)=>{
+
     
     const newCard = this.newRandomCard();
-    const lists = [...this.state.lists]
     let key = newCard.id;
-    lists[id -1].cardIds.push(newCard.id)
+ 
+    const selectedItem = this.state.lists.find(item=> item.id === id);
+ 
+    const newItem = {...selectedItem, cardIds: [...this.state.lists[id-1].cardIds, key]}
+  
+    const newList = [...this.state.lists.slice(0, id-1), newItem, ...this.state.lists.slice(id) ]
 
     this.setState({
       allCards: {
         ...this.state.allCards, 
         [key]: newCard,
       },
-      lists,
+      lists: newList
     })
-    console.log(this.state)
+
   }
+
 
   // omit(obj, keyToOmit) {
   //   return Object.entries(obj).reduce(
