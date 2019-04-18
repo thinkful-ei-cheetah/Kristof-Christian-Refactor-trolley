@@ -20,7 +20,7 @@ export default {
       id: '4',
       header: 'Fourth list',
       cardIds: [ 'l', 'm' ],
-    },
+    }
   ],
   allCards: {
  
