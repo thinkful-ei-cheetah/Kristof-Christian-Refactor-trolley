@@ -9,7 +9,7 @@ export default {
     {
       id: '2',
       header: 'Second list',
-      cardIds: ['b', 'c', 'd', 'f', 'h', 'i', 'k'],
+      cardIds: ['b', 'c', 'd', 'f', 'h', 'i', 'k',],
     },
     {
       id: '3',
@@ -23,6 +23,7 @@ export default {
     },
   ],
   allCards: {
+ 
     'a': { id: 'a', title: 'First card', content: 'lorem ipsum' },
     'b': { id: 'b', title: 'Second card', content: 'lorem ipsum' },
     'c': { id: 'c', title: 'Third card', content: 'lorem ipsum' },
